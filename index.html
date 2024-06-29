@@ -23,9 +23,9 @@
                     <i onclick="menuBar()" class="fa-solid fa-bars"></i>
                 </div>
                 <div class="links">
-                    <span onclick="toHome()">home</span>
-                    <span onclick="toPorfolio()">portfolio</span>
-                    <span onclick="toContact()">contact</span>
+                    <span id="HomeLink" onclick="toHome()">home</span>
+                    <span id="PortfolioLink" onclick="toPorfolio()">portfolio</span>
+                    <span id="ContactLink" onclick="toContact()">contact</span>
                     <span id="hire-btn" onclick="toHire()">hire me</span>
                 </div>
             </div>
@@ -52,8 +52,11 @@
         </div>
 
         <div id="portfolio" class="portfolio">
+
+            <h2>School Data Management System created using .Net Framework</h2>
+
             <div class="projects">
-                <h2>School Data Management System created using .Net Framework</h2>
+                
                 <div class="ProjectsImages">
                     <div class="mySlides">
                         <img src="./SchoolManagement/SchoolStartPage.png" alt="Image 1">
@@ -105,8 +108,10 @@
                 </div>
             </div>
 
+            <h2>A Fantasy App Fronend prototype for Smart Phones</h2>
+
             <div class="projects">
-                <h2>A Fantasy App Fronend prototype for Smart Phones</h2>
+                
                 <div class="ProjectsImages">
                     <div class="mySlidesFan">
                         <img src="./FantasyApp/Start.png" alt="Image 1">
@@ -157,17 +162,11 @@
         </div>
 
         <div id="contact" class="contacts">
-            <!-- <div class="social-media">
-                <div class="box"></div>
-                <div class="box"><a href="https://mail.google.com/" target="_blank"><i class="fa-solid fa-envelope"></i></a></div>
-                <div class="box"><a href="https://web.whatsapp.com/" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></div>
-                <div class="box"><a href="https://web.telegram.org/" target="_blank"><i class="fa-brands fa-telegram"></i></a></div>
-            </div> -->
 
             <div class="circle-container">
                 <a class="box box1" href="https://github.com/someshchauhan/" target="_blank"><i class="fa-brands fa-github"></i></a>
                 <a class="box box2" href="https://wa.me/9058252605" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-                <a class="box box3" href="#" onclick="redirectToEmail()" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+                <a class="box box3" href="#" onclick="redirectToEmail()"><i class="fa-solid fa-envelope"></i></a>
                 <a class="box box4" href="tel:9548876181" target="_blank"><i class="fa-solid fa-phone"></i></a>
             </div>
            
@@ -186,6 +185,10 @@
             let home = document.getElementById("info");
             let contact = document.getElementById("contact");
             let hire = document.getElementById("hire");
+
+            let homelink = document.getElementById("HomeLink");
+            let portfoliolink = document.getElementById("PortfolioLink");
+            let contactlink = document.getElementById("ContactLink");
 
             function redirectToEmail() {
             var email = 'somesh.chauhan.255@gmail.com'; 
@@ -224,6 +227,10 @@
                 home.style.display = "none";
                 contact.style.display = "none";
                 hire.style.display = "none";
+
+                portfoliolink.style.borderBottom = "2px solid orangered";
+                homelink.style.borderBottom = "none";
+                contactlink.style.borderBottom = "none";
         }
 
         function toHome()
@@ -232,6 +239,10 @@
                 home.style.display = "flex";
                 contact.style.display = "none";
                 hire.style.display = "none";
+
+                portfoliolink.style.borderBottom = "none";
+                homelink.style.borderBottom = "2px solid orangered";
+                contactlink.style.borderBottom = "none";
         }
 
         let toContact = () =>
@@ -240,6 +251,10 @@
                 home.style.display = "none";
                 contact.style.display = "flex";
                 hire.style.display = "none";
+
+                portfoliolink.style.borderBottom = "none";
+                homelink.style.borderBottom = "none";
+                contactlink.style.borderBottom = "2px solid orangered";
         }
 
         function toHire()
