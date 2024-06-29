@@ -52,7 +52,7 @@ body
     {
         display: block;
         width: 100%;
-        padding: 20px;
+        padding: 15px 0px;
         background-color: white;
         text-decoration: none;
         color: black;
@@ -125,6 +125,11 @@ body
     color: red;
 }
 
+#HomeLink
+{
+    border-bottom: 2px solid orangered;
+}
+
 #hire-btn
 {
     background: red;
@@ -136,6 +141,8 @@ body
 #hire-btn:hover
 {
     color: black;
+    background-color: aliceblue;
+    box-shadow: 0 5px 5px aliceblue;
 }
 
 .info{
@@ -230,12 +237,13 @@ body
     background-color: white;
     padding: 20px;
 }
-.projects h2
+.portfolio h2
 {
     background-color: rgba(0, 0, 0, 0.7);
     padding: 10px;
-    border-radius: 30px;
     color: aliceblue;
+    width: 100%;
+    text-align: center;
 }
 
 .ProjectsImages {
@@ -250,7 +258,7 @@ body
     display: none;
 }
 
-.mySlides img {
+.mySlides img, .mySlidesFan img {
     width: 100%;
     object-fit: cover;
     border-radius: 10px;
@@ -362,6 +370,7 @@ body
     border-radius: 50%;
     background-color: rgba(0, 0, 0, 0.7);
     border: 5px solid rgba(0, 0, 0, 0.7);
+    transform: rotate(-45deg);
 }
 
 .box {
@@ -383,7 +392,7 @@ body
 
 .box:hover
 {
-    background-color: #333;
+    background-color: lime;
     color: aliceblue;
 }
 
@@ -429,6 +438,17 @@ body
 .box4:hover {
     transform: translate(20px, 20px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+@media(max-width: 720px)
+{
+    .circle-container {
+        transform: rotate(0);
+    }
+    
+    .box {
+        transform: rotate(0);
+    }
 }
 
 .contactUrl
