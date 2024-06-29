@@ -444,10 +444,38 @@ body
 {
     .circle-container {
         transform: rotate(0);
+        height: 300px;
+        width: 300px;
     }
     
     .box {
         transform: rotate(0);
+        height: 145px;
+        width: 145px;
+    }
+
+    .box1 {
+        top: 5px;
+        left: 5px;
+        border-top-left-radius: 145px;
+    }
+    
+    .box2 {
+        top: 5px;
+        right: 5px;
+        border-top-right-radius: 145px;
+    }
+    
+    .box3 {
+        bottom: 5px;
+        left: 5px;
+        border-bottom-left-radius: 145px;
+    }
+    
+    .box4 {
+        bottom: 5px;
+        right: 5px;
+        border-bottom-right-radius: 145px;
     }
 }
 
