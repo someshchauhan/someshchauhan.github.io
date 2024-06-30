@@ -141,8 +141,8 @@ body
 #hire-btn:hover
 {
     color: black;
-    background-color: aliceblue;
-    box-shadow: 0 5px 5px aliceblue;
+    background-color: lime;
+    box-shadow: 0 5px 5px lime;
 }
 
 .info{
@@ -210,6 +210,8 @@ body
 #Cv-Btn:hover
 {
     color: black;
+    background-color: lime;
+    box-shadow: 0 5px 5px limes;
 }
 
 .perImage img
