@@ -53,111 +53,46 @@
 
         <div id="portfolio" class="portfolio">
 
-            <h2>School Data Management System created using .Net Framework</h2>
-
-            <div class="projects">
-                
-                <div class="ProjectsImages">
-                    <div class="mySlides">
-                        <img src="./SchoolManagement/SchoolStartPage.png" alt="Image 1">
-                    </div>
-        
-                    <div class="mySlides">
-                        <img src="./SchoolManagement/SchoolStartLogin.png" alt="Image 2">
-                    </div>
-        
-                    <div class="mySlides">
-                        <img src="./SchoolManagement/SchoolIndex.png" alt="Image 3">
-                    </div>
-
-                    <div class="mySlides">
-                        <img src="./SchoolManagement/SchoolIndex-StudentAdmission.png" alt="Image 3">
-                    </div>
-
-                    <div class="mySlides">
-                        <img src="./SchoolManagement/StudentAdmission.png" alt="Image 3">
-                    </div>
-
-                    <div class="mySlides">
-                        <img src="./SchoolManagement/ToInformation.png" alt="Image 3">
-                    </div>
-
-                    <div class="mySlides">
-                        <img src="./SchoolManagement/Information.png" alt="Image 3">
-                    </div>
-
-                    <div class="mySlides">
-                        <img src="./SchoolManagement/SearchingInfo.png" alt="Image 3">
-                    </div>
-
-                    <div class="mySlides">
-                        <img src="./SchoolManagement/InfoFound.png" alt="Image 3">
-                    </div>
-
-                    <div class="mySlides">
-                        <img src="./SchoolManagement/OtherFeatures.png" alt="Image 3">
-                    </div>
-
-                    <div class="mySlides">
-                        <img src="./SchoolManagement/Classlist.png" alt="Image 3">
-                    </div>
-        
-                    <!-- Navigation arrows -->
-                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                </div>
-            </div>
-
             <h2>A Fantasy App Fronend prototype for Smart Phones</h2>
 
-            <div class="projects">
-                
-                <div class="ProjectsImages">
-                    <div class="mySlidesFan">
-                        <img src="./FantasyApp/Start.png" alt="Image 1">
-                    </div>
+            <div class="gallery">
+                <img src="FantasyApp/Start.png" class="thumbnail" onclick="showFullImage('FantasyApp/Start.png')">
+                <img src="FantasyApp/Login.png" class="thumbnail" onclick="showFullImage('FantasyApp/Login.png')">
+                <img src="FantasyApp/Index.png" class="thumbnail" onclick="showFullImage('FantasyApp/Index.png')">
+                <img src="FantasyApp/menu.png" class="thumbnail" onclick="showFullImage('FantasyApp/menu.png')">
+                <img src="FantasyApp/Wallet.png" class="thumbnail" onclick="showFullImage('FantasyApp/Wallet.png')">
+                <img src="FantasyApp/Info.png" class="thumbnail" onclick="showFullImage('FantasyApp/info.png')">
+                <img src="FantasyApp/points.png" class="thumbnail" onclick="showFullImage('FantasyApp/points.png')">
+                <img src="FantasyApp/more.png" class="thumbnail" onclick="showFullImage('FantasyApp/more.png')">
+                <img src="FantasyApp/contest.png" class="thumbnail" onclick="showFullImage('FantasyApp/contest.png')">
+                <img src="FantasyApp/team.png" class="thumbnail" onclick="showFullImage('FantasyApp/team.png')">
+            </div>
         
-                    <div class="mySlidesFan">
-                        <img src="./FantasyApp/Login.png" alt="Image 2">
-                    </div>
+            <div id="fullImageModal" class="modal">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <img class="modal-content" id="fullImage">
+            </div>
+
+            <h2>School management system</h2>
+
+            <div class="gallery">
+                <img src="SchoolManagement/SchoolStartPage.png" class="thumbnail" onclick="showFullImage('SchoolManagement/SchoolStartPage.png')">
+                <img src="SchoolManagement/SchoolStartLogin.png" class="thumbnail" onclick="showFullImage('FantasyApp/SchoolStartLogin.png')">
+                <img src="SchoolManagement/SchoolIndex.png" class="thumbnail" onclick="showFullImage('SchoolManagement/SchoolIndex.png')">
+                <img src="SchoolManagement/SchoolIndex-StudentAdmission.png" class="thumbnail" onclick="showFullImage('SchoolManagement/SchoolIndex-StudentAdmission.png')">
+                <img src="SchoolManagement/StudentAdmission.png" class="thumbnail" onclick="showFullImage('SchoolManagement/StudentAdmission.png')">
+                <img src="SchoolManagement/AdmissionSuccessful.png" class="thumbnail" onclick="showFullImage('SchoolManagement/AdmissionSuccessful.png')">
+                <img src="SchoolManagement/ToInformation.png" class="thumbnail" onclick="showFullImage('SchoolManagement/ToInformation.png')">
+                <img src="SchoolManagement/Information.png" class="thumbnail" onclick="showFullImage('SchoolManagement/Information.png')">
+                <img src="SchoolManagement/SearchingInfo.png" class="thumbnail" onclick="showFullImage('SchoolManagement/SearchingInfo.png')">
+                <img src="SchoolManagement/InfoFound.png" class="thumbnail" onclick="showFullImage('SchoolManagement/InfoFound.png')">
+                <img src="SchoolManagement/Classlist.png" class="thumbnail" onclick="showFullImage('SchoolManagement/Classlist.png')">
+                <img src="SchoolManagement/OtherFeatures.png" class="thumbnail" onclick="showFullImage('SchoolManagement/OtherFeatures.png')">
+            </div>
         
-                    <div class="mySlidesFan">
-                        <img src="./FantasyApp/Index.png" alt="Image 3">
-                    </div>
-
-                    <div class="mySlidesFan">
-                        <img src="./FantasyApp/menu.png" alt="Image 3">
-                    </div>
-
-                    <div class="mySlidesFan">
-                        <img src="./FantasyApp/Wallet.png" alt="Image 3">
-                    </div>
-
-                    <div class="mySlidesFan">
-                        <img src="./FantasyApp/Info.png" alt="Image 3">
-                    </div>
-
-                    <div class="mySlidesFan">
-                        <img src="./FantasyApp/points.png" alt="Image 3">
-                    </div>
-
-                    <div class="mySlidesFan">
-                        <img src="./FantasyApp/more.png" alt="Image 3">
-                    </div>
-
-                    <div class="mySlidesFan">
-                        <img src="./FantasyApp/contest.png" alt="Image 3">
-                    </div>
-
-                    <div class="mySlidesFan">
-                        <img src="./FantasyApp/team.png" alt="Image 3">
-                    </div>
-
-        
-                    <!-- Navigation arrows -->
-                    <a class="prev" onclick="nextSlides(-1)">&#10094;</a>
-                    <a class="next" onclick="nextSlides(1)">&#10095;</a>
-                </div>
+            <div id="fullImageModal" class="modal">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <img class="modal-content" id="fullImage">
             </div>
         </div>
 
