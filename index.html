@@ -116,6 +116,9 @@
 
     <script>
 
+            let menu = document.getElementById("menu");
+            let links = document.getElementById("links");
+
             let portfolio = document.getElementById("portfolio");
             let home = document.getElementById("info");
             let contact = document.getElementById("contact");
@@ -141,8 +144,7 @@
 
         function menuBar()
         {
-            let menu = document.getElementById("menu");
-            let links = document.getElementById("links");
+            
             
 
             if(links.style.display != "none")
@@ -166,6 +168,8 @@
                 portfoliolink.style.borderBottom = "2px solid orangered";
                 homelink.style.borderBottom = "none";
                 contactlink.style.borderBottom = "none";
+
+                links.style.display = "none";
         }
 
         function toHome()
@@ -178,6 +182,8 @@
                 portfoliolink.style.borderBottom = "none";
                 homelink.style.borderBottom = "2px solid orangered";
                 contactlink.style.borderBottom = "none";
+
+                links.style.display = "none";
         }
 
         let toContact = () =>
@@ -190,6 +196,8 @@
                 portfoliolink.style.borderBottom = "none";
                 homelink.style.borderBottom = "none";
                 contactlink.style.borderBottom = "2px solid orangered";
+
+                links.style.display = "none";
         }
 
         function toHire()
@@ -202,6 +210,8 @@
                 portfoliolink.style.borderBottom = "none";
                 homelink.style.borderBottom = "none";
                 contactlink.style.borderBottom = "none";
+
+                links.style.display = "none";
         }
 
 
