@@ -205,57 +205,24 @@
         }
 
 
-        let slideIndex = 1;
-
-        function showSlides(n) {
-            let i;
-            const slides = document.getElementsByClassName("mySlides");
-
-            if (n > slides.length) {
-                slideIndex = 1;
-            }
-
-            if (n < 1) {
-                slideIndex = slides.length;
-            }
-
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-
-            slides[slideIndex - 1].style.display = "block";
+        function showFullImage(src) {
+            var modal = document.getElementById('fullImageModal');
+            var fullImage = document.getElementById('fullImage');
+            fullImage.src = src;
+            modal.style.display = "block";
         }
 
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
+        function closeModal() {
+            var modal = document.getElementById('fullImageModal');
+            modal.style.display = "none";
         }
 
-        showSlides(slideIndex);
-
-        function showFantasySlides(n) {
-            let i;
-            const slides = document.getElementsByClassName("mySlidesFan");
-
-            if (n > slides.length) {
-                slideIndex = 1;
+        window.onclick = function(event) {
+            var modal = document.getElementById('fullImageModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
             }
-
-            if (n < 1) {
-                slideIndex = slides.length;
-            }
-
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-
-            slides[slideIndex - 1].style.display = "block";
         }
-
-        function nextSlides(n) {
-            showFantasySlides(slideIndex += n);
-        }
-
-        showFantasySlides(slideIndex);
 
 
     </script>
