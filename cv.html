@@ -4,92 +4,666 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Somesh Chauhan - Resume</title>
-    <link rel="shortcut icon" href="images/My-Logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lato:wght@400;700&display=swap">
+    <link rel="shortcut icon" href="./Images/My-Logo.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
-        *{margin: 0; padding: 0;}
-        
-        iframe {
-            width: 100%;
-            height: 100vh;
-            border: none;
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #10b981;
+            --accent: #f59e0b;
+            --dark: #0f172a;
+            --darker: #020617;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
-       
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--light);
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .cv-container {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 0;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+            margin: 40px 0;
+        }
+
+        /* Left Sidebar */
+        .sidebar {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.8) 100%);
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sidebar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTAwMCAxMDAwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiMwZjE3MmEiLz48cGF0aCBkPSJNMCw1MDBMMTAwMCw1MDBMMTAwMCw3NTBMMCw3NTBaIiBmaWxsPSIjMWUyOTNiIiBmaWxsLW9wYWNpdHk9IjAuMSIvPjxwYXRoIGQ9Ik0wLDI1MEwxMDAwLDI1MEwxMDAwLDUwMEwwLDUwMFoiIGZpbGw9IiMxZTI5M2IiIGZpbGwtb3BhY2l0eT0iMC4xIi8+PHBhdGggZD0iTTAsMEwxMDAwLDBMMTAwMCwyNTBMMCwyNTBaIiBmaWxsPSIjMWUyOTNiIiBmaWxsLW9wYWNpdHk9IjAuMSIvPjwvc3ZnPg==');
+            opacity: 0.1;
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid rgba(99, 102, 241, 0.3);
+            margin: 0 auto 25px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+            border-color: rgba(99, 102, 241, 0.6);
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--light) 0%, var(--primary) 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .title {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        .contact-item i {
+            color: var(--accent);
+            font-size: 1.1rem;
+            width: 20px;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 50px 40px;
+            background: rgba(15, 23, 42, 0.7);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .section-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: white;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--light);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .section-content {
+            padding-left: 65px;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-item {
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            padding: 12px 15px;
+            border-radius: 10px;
+            text-align: center;
+            transition: var(--transition);
+            cursor: default;
+        }
+
+        .skill-item:hover {
+            background: rgba(99, 102, 241, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.2);
+        }
+
+        /* Education & Experience */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            transition: var(--transition);
+        }
+
+        .timeline-item:hover {
+            border-color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 25px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 3px solid var(--dark);
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--light);
+        }
+
+        .timeline-subtitle {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .timeline-date {
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        /* Lists */
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            position: relative;
+            padding: 8px 0;
+            padding-left: 25px;
+            color: var(--gray);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+
+        .info-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Declaration Section */
+        .declaration-section {
+            padding: 25px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            margin-top: 40px;
+        }
+
+        .signature-input {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--glass-border);
+            padding: 8px 0;
+            color: var(--light);
+            width: 200px;
+            margin-left: 10px;
+            transition: var(--transition);
+        }
+
+        .signature-input:focus {
+            outline: none;
+            border-bottom-color: var(--primary);
+        }
+
+        .signature-area {
+            text-align: right;
+            margin-top: 30px;
+        }
+
+        /* Back Button */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: var(--transition);
+            font-weight: 500;
+            margin-top: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .back-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .cv-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                padding: 30px 25px;
+            }
+            
+            .main-content {
+                padding: 40px 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .cv-container {
+                margin: 20px 0;
+            }
+            
+            .profile-img {
+                width: 140px;
+                height: 140px;
+            }
+            
+            .name {
+                font-size: 1.5rem;
+            }
+            
+            .section-content {
+                padding-left: 0;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+        }
+
+        @media (max-width: 576px) {
+            .main-content, .sidebar {
+                padding: 25px 20px;
+            }
+            
+            .section-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 1.3rem;
+            }
+            
+            .timeline {
+                padding-left: 20px;
+            }
+            
+            .timeline-item::before {
+                left: -28px;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- <header>
-        <h1>Somesh Chauhan</h1>
-        <p>Address: Srinagar, Pauri Garhwal, Uttarakhand(246174)<br>
-        Mob: 9058252605<br>
-        Email: somesh.chauhan.255@gmail.com</p>
-    </header>
+    <div class="cv-container">
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+            <div class="profile-section">
+                <div class="profile-img">
+                    <img src="./Images/result.png" alt="Somesh Chauhan">
+                </div>
+                <h1 class="name">Somesh Chauhan</h1>
+                <p class="title">Full Stack Developer</p>
+            </div>
 
-    <section>
-        <h2>Objective</h2>
-        <p>To pursue a career in an organization where I can apply my knowledge and skills, contributing to both the organization's growth and my personal development.</p>
-    </section>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Srinagar, Pauri Garhwal, Uttarakhand</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+91 9058252605</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>somesh.chauhan.255@gmail.com</span>
+                </div>
+            </div>
 
-    
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h2 class="section-title">Skills</h2>
+                </div>
+                <div class="section-content">
+                    <div class="skills-grid">
+                        <div class="skill-item">C#</div>
+                        <div class="skill-item">C</div>
+                        <div class="skill-item">C++</div>
+                        <div class="skill-item">.NET</div>
+                        <div class="skill-item">ASP.NET</div>
+                        <div class="skill-item">JavaScript</div>
+                        <div class="skill-item">jQuery</div>
+                        <div class="skill-item">HTML</div>
+                        <div class="skill-item">CSS</div>
+                        <div class="skill-item">JSON</div>
+                        <div class="skill-item">ADO.NET</div>
+                        <div class="skill-item">SQL Server</div>
+                    </div>
+                </div>
+            </div>
 
-    <section>
-        <h2>Education Qualification</h2>
-        <ul>
-            <li>10th pass from CBSE in 2017</li>
-            <li>12th pass from CBSE in 2019</li>
-            <li>Bsc from HNBGU Srinagar Garhwal</li>
-        </ul>
-    </section>
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h2 class="section-title">Personal Skills</h2>
+                </div>
+                <div class="section-content">
+                    <ul class="info-list">
+                        <li>Hard-working & Sincere</li>
+                        <li>Good Decision-making</li>
+                        <li>Analytical Skills</li>
+                        <li>Intellectual Ability</li>
+                        <li>Problem Solving</li>
+                        <li>Team Collaboration</li>
+                    </ul>
+                </div>
+            </div>
 
-    
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h2 class="section-title">Hobbies</h2>
+                </div>
+                <div class="section-content">
+                    <ul class="info-list">
+                        <li>Reading Books</li>
+                        <li>Online Gaming</li>
+                        <li>Learning New Technologies</li>
+                        <li>UI/UX Design</li>
+                    </ul>
+                </div>
+            </div>
 
-    <section>
-        <h2>Technical Skills</h2>
-        <ul>
-            <li><strong>Programming Languages:</strong> C#, C, C++</li>
-            <li><strong>Software Development Platform:</strong> Microsoft .NET</li>
-            <li><strong>Web Technologies:</strong> ASP.NET, JavaScript, Jquery, HTML, CSS, Angular</li>
-            <li><strong>Database Technology:</strong> ADO.NET</li>
-            <li><strong>Database:</strong> Microsoft SQL Server</li>
-            <li><strong>Software Tools:</strong> Visual Studio.NET, SQL Server Management Studio, VS Code.</li>
-        </ul>
-    </section>
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h2 class="section-title">Languages</h2>
+                </div>
+                <div class="section-content">
+                    <ul class="info-list">
+                        <li>Hindi (Native)</li>
+                        <li>English (Fluent)</li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
 
-    <section>
-        <h2>Personal Skills</h2>
-        <ul>
-            <li>Hard-working, sincere</li>
-            <li>Good decision-making and analytical skills</li>
-            <li>Intellectual skill</li>
-        </ul>
-    </section>
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h2 class="section-title">Professional Summary</h2>
+                </div>
+                <div class="section-content">
+                    <p style="color: var(--gray); line-height: 1.8;">
+                        Passionate and driven Full Stack Developer eager to utilize technical expertise in website and software development to craft innovative solutions for dynamic organizations. Dedicated to contributing to company success while advancing professional growth through challenging projects and continuous learning. Ready to make a meaningful impact from day one.
+                    </p>
+                </div>
+            </div>
 
-    <section>
-        <h2>Hobbies</h2>
-        <ul>
-            <li>Reading Books</li>
-            <li>Online Gaming</li>
-        </ul>
-    </section>
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h2 class="section-title">Education</h2>
+                </div>
+                <div class="section-content">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h3 class="timeline-title">Bachelor of Science</h3>
+                            <p class="timeline-subtitle">HNBGU Srinagar Garhwal</p>
+                            <p class="timeline-date">2019 - 2022</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h3 class="timeline-title">12th Standard (CBSE)</h3>
+                            <p class="timeline-subtitle">Senior Secondary Education</p>
+                            <p class="timeline-date">2019</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h3 class="timeline-title">10th Standard (CBSE)</h3>
+                            <p class="timeline-subtitle">Secondary Education</p>
+                            <p class="timeline-date">2017</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <section>
-        <h2>Personal Details</h2>
-        <ul>
-            <li><strong>Father's Name:</strong> Sh. Lokpati singh chauhan</li>
-            <li><strong>Sex:</strong> Male</li>
-            <li><strong>Marital Status:</strong> Unmarried</li>
-            <li><strong>Nationality:</strong> Indian</li>
-            <li><strong>Language:</strong> Hindi & English</li>
-            <li><strong>DOB:</strong> 28-January-2002</li>
-        </ul>
-    </section>
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h2 class="section-title">Technical Skills</h2>
+                </div>
+                <div class="section-content">
+                    <ul class="info-list">
+                        <li><strong>Programming Languages:</strong> C#, C, C++</li>
+                        <li><strong>Software Development Platform:</strong> Microsoft .NET</li>
+                        <li><strong>Web Technologies:</strong> ASP.NET, JavaScript, Jquery, HTML, CSS, JSON</li>
+                        <li><strong>Database Technology:</strong> ADO.NET</li>
+                        <li><strong>Database:</strong> Microsoft SQL Server</li>
+                        <li><strong>Software Tools:</strong> Visual Studio.NET, SQL Server Management Studio, VS Code</li>
+                        <li><strong>Version Control:</strong> Git, GitHub</li>
+                    </ul>
+                </div>
+            </div>
 
-    <footer>
-        <p>Declaration: I hereby declare that the particulars given herein are true to the best of my belief.</p>
-        <p>Date: <input type="text" name="" id=""> (Somesh Chauhan)</p>
-    </footer> -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <h2 class="section-title">Personal Details</h2>
+                </div>
+                <div class="section-content">
+                    <ul class="info-list">
+                        <li><strong>Father's Name:</strong> Sh. Lokpati Singh Chauhan</li>
+                        <li><strong>Date of Birth:</strong> 28-January-2002</li>
+                        <li><strong>Gender:</strong> Male</li>
+                        <li><strong>Marital Status:</strong> Unmarried</li>
+                        <li><strong>Nationality:</strong> Indian</li>
+                    </ul>
+                </div>
+            </div>
 
-    <iframe src="/Images/CV.pdf"></iframe>
+            <div class="declaration-section">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-file-signature"></i>
+                    </div>
+                    <h2 class="section-title">Declaration</h2>
+                </div>
+                <div class="section-content">
+                    <p style="color: var(--gray); margin-bottom: 20px;">
+                        I hereby declare that the particulars given herein are true to the best of my belief.
+                    </p>
+                    <div style="margin-top: 25px;">
+                        <p>Date: <input type="text" class="signature-input" placeholder="DD/MM/YYYY"></p>
+                    </div>
+                    <div class="signature-area">
+                        <p>(Somesh Chauhan)</p>
+                    </div>
+                </div>
+            </div>
+
+            
+        </main>
+    </div>
 </body>
 </html>
