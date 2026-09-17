@@ -239,7 +239,7 @@
         }
 
         .hero-text h1 {
-            font-size: 3.5rem;
+            font-size: 3.3rem;
             margin-bottom: 20px;
             background: linear-gradient(135deg, var(--light) 0%, var(--primary) 100%);
             background-clip: text;
@@ -252,6 +252,23 @@
             color: var(--gray);
             margin-bottom: 30px;
             line-height: 1.8;
+        }
+
+        .hero-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .hero-stack span {
+            padding: 6px 14px;
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-family: 'JetBrains Mono', monospace;
         }
 
         .hero-btns {
@@ -354,6 +371,14 @@
             border-radius: 2px;
         }
 
+        .section-title p.subtitle {
+            color: var(--gray);
+            margin-top: 20px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -433,6 +458,71 @@
             100% { transform: translateX(100%); }
         }
 
+        /* Experience Section */
+        .experience {
+            position: relative;
+        }
+
+        .exp-card {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+        }
+
+        .exp-head {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+
+        .exp-head h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0;
+            color: var(--light);
+        }
+
+        .exp-date {
+            padding: 6px 14px;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: var(--secondary);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+
+        .exp-company {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .exp-list {
+            list-style: none;
+        }
+
+        .exp-list li {
+            position: relative;
+            padding: 8px 0 8px 25px;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        .exp-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
         /* Portfolio Section */
         .portfolio {
             position: relative;
@@ -464,7 +554,7 @@
 
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
             gap: 30px;
         }
 
@@ -478,6 +568,8 @@
             opacity: 0;
             transform: translateY(30px);
             animation: fadeInUp 0.8s ease forwards;
+            display: flex;
+            flex-direction: column;
         }
 
         .portfolio-item.visible {
@@ -491,44 +583,74 @@
             border-color: var(--primary);
         }
 
-        .portfolio-img {
-            height: 220px;
-            overflow: hidden;
+        .portfolio-icon-header {
+            height: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.18) 0%, rgba(16, 185, 129, 0.1) 100%);
             position: relative;
         }
 
-        .portfolio-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
+        .portfolio-icon-header i {
+            font-size: 2.6rem;
+            color: var(--primary);
         }
 
-        .portfolio-item:hover .portfolio-img img {
-            transform: scale(1.1);
+        .portfolio-client-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-pg {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--accent);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        .badge-itc {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--secondary);
+            border: 1px solid rgba(16, 185, 129, 0.3);
         }
 
         .portfolio-info {
             padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
         }
 
         .portfolio-info h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
+            font-size: 1.2rem;
+            margin-bottom: 6px;
             color: var(--light);
         }
 
-        .portfolio-info p {
+        .portfolio-location {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-bottom: 12px;
+        }
+
+        .portfolio-info p.desc {
             color: var(--gray);
             margin-bottom: 15px;
             line-height: 1.6;
+            font-size: 0.95rem;
+            flex: 1;
         }
 
         .portfolio-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-bottom: 20px;
         }
 
         .portfolio-tag {
@@ -536,29 +658,8 @@
             background: rgba(99, 102, 241, 0.2);
             border: 1px solid rgba(99, 102, 241, 0.3);
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--primary);
-        }
-
-        .portfolio-links {
-            display: flex;
-            gap: 10px;
-        }
-
-        .portfolio-link {
-            padding: 8px 18px;
-            background: var(--primary);
-            color: white;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            text-decoration: none;
-            transition: var(--transition);
-            cursor: pointer;
-        }
-
-        .portfolio-link:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
         }
 
         /* Contact Section */
@@ -743,94 +844,6 @@
             font-size: 0.9rem;
         }
 
-        /* Image Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .modal.active {
-            display: flex;
-        }
-
-        .modal-content {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 10px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-            object-fit: contain;
-        }
-
-        .close {
-            position: absolute;
-            top: 20px;
-            right: 35px;
-            color: white;
-            font-size: 40px;
-            cursor: pointer;
-            transition: var(--transition);
-            z-index: 2001;
-        }
-
-        .close:hover {
-            color: var(--accent);
-            transform: scale(1.1);
-        }
-
-        .modal-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: var(--transition);
-            backdrop-filter: blur(10px);
-            z-index: 2001;
-        }
-
-        .modal-nav:hover {
-            background: var(--primary);
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        .modal-prev {
-            left: 20px;
-        }
-
-        .modal-next {
-            right: 20px;
-        }
-
-        .modal-counter {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: white;
-            background: var(--glass);
-            padding: 8px 16px;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            font-size: 0.9rem;
-        }
-
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -853,12 +866,17 @@
                 text-align: center;
             }
             
-            .hero-btns {
+            .hero-btns, .hero-stack {
                 justify-content: center;
             }
             
             .footer-content {
                 grid-template-columns: 1fr 1fr;
+            }
+
+            .exp-head {
+                justify-content: center;
+                text-align: center;
             }
         }
 
@@ -893,7 +911,7 @@
             }
             
             .hero-text h1 {
-                font-size: 2.5rem;
+                font-size: 2.3rem;
             }
             
             .section-title h2 {
@@ -907,24 +925,11 @@
             .footer-content {
                 grid-template-columns: 1fr;
             }
-
-            .modal-nav {
-                width: 40px;
-                height: 40px;
-            }
-
-            .modal-prev {
-                left: 10px;
-            }
-
-            .modal-next {
-                right: 10px;
-            }
         }
 
         @media (max-width: 576px) {
             .hero-text h1 {
-                font-size: 2rem;
+                font-size: 1.9rem;
             }
             
             .hero-btns {
@@ -937,11 +942,6 @@
                 max-width: 250px;
                 text-align: center;
                 justify-content: center;
-            }
-
-            .modal-content {
-                max-width: 95%;
-                max-height: 80%;
             }
         }
     </style>
@@ -964,6 +964,7 @@
                 <div class="nav-links" id="nav-links">
                     <a href="#home">Home</a>
                     <a href="#about">About</a>
+                    <a href="#experience">Experience</a>
                     <a href="#portfolio">Portfolio</a>
                     <a href="#contact">Contact</a>
                     <a href="#hire" class="btn">Hire Me</a>
@@ -981,7 +982,14 @@
                         <i class="fas fa-code"></i> Full Stack Developer
                     </div>
                     <h1>Turning Ideas Into Digital Reality</h1>
-                    <p>Passionate and driven Full Stack Developer crafting innovative solutions for dynamic organizations. Dedicated to contributing to company success while advancing professional growth through challenging projects.</p>
+                    <p>Results-driven Full Stack Developer at SM Informatics & Controls, building enterprise-grade industrial applications for global FMCG leaders including Procter & Gamble and ITC — from real-time monitoring dashboards to mission-critical plant automation systems.</p>
+                    <div class="hero-stack">
+                        <span>.NET Core</span>
+                        <span>ASP.NET</span>
+                        <span>React.js</span>
+                        <span>C#</span>
+                        <span>SQL Server</span>
+                    </div>
                     <div class="hero-btns">
                         <a href="#portfolio" class="btn">
                             <i class="fas fa-rocket"></i> View My Work
@@ -996,13 +1004,13 @@
                         <img src="./Images/result.png" alt="Somesh Chauhan">
                         <div class="floating-elements">
                             <div class="floating-element">
-                                <i class="fas fa-mobile-alt"></i> Responsive Design
+                                <i class="fas fa-industry"></i> Industrial Automation
                             </div>
                             <div class="floating-element">
-                                <i class="fas fa-database"></i> Database Management
+                                <i class="fas fa-database"></i> SQL Server
                             </div>
                             <div class="floating-element">
-                                <i class="fas fa-code"></i> Clean Code
+                                <i class="fas fa-code"></i> .NET Core & React
                             </div>
                         </div>
                     </div>
@@ -1022,14 +1030,14 @@
                     <img src="./Images/result.png" alt="Somesh Chauhan">
                 </div>
                 <div class="about-text">
-                    <h3>Crafting Digital Experiences</h3>
-                    <p>I'm a passionate Full Stack Developer with expertise in creating responsive, user-friendly websites and applications. I specialize in turning complex problems into simple, beautiful designs.</p>
-                    <p>My approach combines technical expertise with creative thinking to deliver solutions that not only meet but exceed expectations.</p>
+                    <h3>Building Software for the Factory Floor</h3>
+                    <p>I'm a Full Stack Developer specializing in end-to-end development across .NET Core APIs, ASP.NET Web Forms, React.js, and SQL Server. At SM Informatics & Controls, I deliver production-grade industrial applications directly inside client manufacturing plants for Procter & Gamble and ITC.</p>
+                    <p>My work replaces manual, paper-based plant workflows with reliable, auditable, digital systems — automating scheduling, calibration, labeling, and compliance processes, while maintaining mission-critical software with zero-downtime expectations in 24/7 manufacturing environments.</p>
                     
                     <div class="skills">
                         <div class="skill-item">
                             <div class="skill-name">
-                                <span>Frontend Development</span>
+                                <span>.NET Core / ASP.NET</span>
                                 <span>90%</span>
                             </div>
                             <div class="skill-bar">
@@ -1038,20 +1046,20 @@
                         </div>
                         <div class="skill-item">
                             <div class="skill-name">
-                                <span>Backend Development</span>
-                                <span>85%</span>
+                                <span>React.js / JavaScript</span>
+                                <span>82%</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
+                                <div class="skill-progress" style="width: 82%"></div>
                             </div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-name">
-                                <span>Database Management</span>
-                                <span>80%</span>
+                                <span>SQL Server / Database Design</span>
+                                <span>85%</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" style="width: 80%"></div>
+                                <div class="skill-progress" style="width: 85%"></div>
                             </div>
                         </div>
                     </div>
@@ -1064,123 +1072,225 @@
         </div>
     </section>
 
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Experience</h2>
+            </div>
+            <div class="exp-card">
+                <div class="exp-head">
+                    <h3>Software Developer</h3>
+                    <span class="exp-date">Mar 2025 – Present</span>
+                </div>
+                <p class="exp-company">SM Informatics & Controls · Noida, Uttar Pradesh · On-site</p>
+                <ul class="exp-list">
+                    <li>Develop and deliver full-stack industrial applications for P&G (Baddi & Hyderabad) and ITC (Haridwar & Agra), spanning 10+ production-grade projects.</li>
+                    <li>Build solutions across .NET Core APIs, ASP.NET Web Forms, React.js, C#, and SQL Server, directly in client manufacturing environments.</li>
+                    <li>Collaborate on-site with plant engineers and operators to gather requirements, validate deliverables, and drive seamless integration.</li>
+                    <li>Replace manual, paper-based workflows with reliable, auditable, and scalable digital systems that improve plant efficiency.</li>
+                    <li>Maintain high-availability, mission-critical software in demanding 24/7 manufacturing environments with zero-downtime expectations.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
     <!-- Portfolio Section -->
     <section class="portfolio" id="portfolio">
         <div class="container">
             <div class="section-title">
-                <h2>My Portfolio</h2>
+                <h2>Project Portfolio</h2>
+                <p class="subtitle">Enterprise industrial applications delivered on-site for Procter & Gamble and ITC manufacturing plants.</p>
             </div>
             <div class="portfolio-filters">
                 <button class="filter-btn active" data-filter="all">All Projects</button>
-                <button class="filter-btn" data-filter="web">Web Apps</button>
-                <button class="filter-btn" data-filter="mobile">Mobile</button>
-                <button class="filter-btn" data-filter="template">Templates</button>
+                <button class="filter-btn" data-filter="pg">Procter & Gamble</button>
+                <button class="filter-btn" data-filter="itc">ITC Limited</button>
             </div>
             <div class="portfolio-grid">
-                <!-- Fantasy App -->
-                <div class="portfolio-item" data-category="mobile">
-                    <div class="portfolio-img">
-                        <img src="FantasyApp/Start.png" alt="Fantasy App">
+
+                <!-- OEE -->
+                <div class="portfolio-item" data-category="itc">
+                    <div class="portfolio-icon-header">
+                        <i class="fas fa-chart-line"></i>
+                        <span class="portfolio-client-badge badge-itc">ITC</span>
                     </div>
                     <div class="portfolio-info">
-                        <h3>Fantasy App</h3>
-                        <p>A Fantasy App Frontend prototype for Smart Phones with multiple screens and features including login, wallet, contests and team management.</p>
+                        <h3>OEE – Overall Equipment Effectiveness</h3>
+                        <p class="portfolio-location">ITC Limited, Agra</p>
+                        <p class="desc">Real-time OEE dashboard tracking availability, performance, and quality across production lines, with automated downtime and loss-tracking to help plant teams identify efficiency gaps and improve throughput.</p>
                         <div class="portfolio-tags">
-                            <span class="portfolio-tag">UI/UX</span>
-                            <span class="portfolio-tag">Mobile</span>
-                            <span class="portfolio-tag">Prototype</span>
-                        </div>
-                        <div class="portfolio-links">
-                            <button class="portfolio-link" onclick="openGallery('fantasy')">
-                                <i class="fas fa-eye"></i> View Gallery
-                            </button>
+                            <span class="portfolio-tag">.NET Core</span>
+                            <span class="portfolio-tag">C#</span>
+                            <span class="portfolio-tag">PostgreSQL</span>
                         </div>
                     </div>
                 </div>
-                
-                <!-- School Management System -->
-                <div class="portfolio-item" data-category="web">
-                    <div class="portfolio-img">
-                        <img src="SchoolManagement/SchoolStartPage.png" alt="School Management System">
+
+                <!-- CMSite -->
+                <div class="portfolio-item" data-category="pg">
+                    <div class="portfolio-icon-header">
+                        <i class="fas fa-truck"></i>
+                        <span class="portfolio-client-badge badge-pg">P&G</span>
                     </div>
                     <div class="portfolio-info">
-                        <h3>School Management System</h3>
-                        <p>A comprehensive school management system with student admission, information management, class lists and administrative features.</p>
+                        <h3>CMSite – Logistics & Production Portal</h3>
+                        <p class="portfolio-location">Procter & Gamble, Hyderabad</p>
+                        <p class="desc">Unified portal integrating logistics and production data for real-time visibility across plant operations, streamlining coordination between production scheduling and dispatch.</p>
                         <div class="portfolio-tags">
-                            <span class="portfolio-tag">Web App</span>
-                            <span class="portfolio-tag">Management</span>
-                            <span class="portfolio-tag">Database</span>
-                        </div>
-                        <div class="portfolio-links">
-                            <button class="portfolio-link" onclick="openGallery('school')">
-                                <i class="fas fa-eye"></i> View Gallery
-                            </button>
+                            <span class="portfolio-tag">.NET Core</span>
+                            <span class="portfolio-tag">C#</span>
+                            <span class="portfolio-tag">SQL Server</span>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Login/Signup Template -->
-                <div class="portfolio-item" data-category="template">
-                    <div class="portfolio-img">
-                        <img src="LoginSignup/Screenshot 2024-07-25 102635.png" alt="Login/Signup Template">
+
+                <!-- Energy Monitoring -->
+                <div class="portfolio-item" data-category="itc">
+                    <div class="portfolio-icon-header">
+                        <i class="fas fa-bolt"></i>
+                        <span class="portfolio-client-badge badge-itc">ITC</span>
                     </div>
                     <div class="portfolio-info">
-                        <h3>Login/Signup Template</h3>
-                        <p>A clean and modern login/signup template with responsive design, form validation and smooth animations.</p>
+                        <h3>Energy Monitoring System</h3>
+                        <p class="portfolio-location">ITC Limited, Haridwar</p>
+                        <p class="desc">Real-time dashboard monitoring plant energy consumption across production lines, with live KPI tracking and anomaly detection to proactively reduce energy wastage.</p>
                         <div class="portfolio-tags">
-                            <span class="portfolio-tag">Template</span>
-                            <span class="portfolio-tag">UI/UX</span>
-                            <span class="portfolio-tag">Responsive</span>
-                        </div>
-                        <div class="portfolio-links">
-                            <button class="portfolio-link" onclick="openGallery('login')">
-                                <i class="fas fa-eye"></i> View Gallery
-                            </button>
+                            <span class="portfolio-tag">React.js</span>
+                            <span class="portfolio-tag">.NET Core API</span>
+                            <span class="portfolio-tag">SQL Server</span>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Calculator -->
-                <div class="portfolio-item" data-category="web">
-                    <div class="portfolio-img">
-                        <img src="Calculator/Screenshot 2024-07-25 102022.png" alt="Calculator">
+
+                <!-- PSG Production Planning -->
+                <div class="portfolio-item" data-category="pg">
+                    <div class="portfolio-icon-header">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span class="portfolio-client-badge badge-pg">P&G</span>
                     </div>
                     <div class="portfolio-info">
-                        <h3>Basic Working Calculator</h3>
-                        <p>A functional calculator with basic arithmetic operations, clean interface and responsive design for all devices.</p>
+                        <h3>PSG Production Planning</h3>
+                        <p class="portfolio-location">Procter & Gamble, Baddi</p>
+                        <p class="desc">Automated the full production scheduling workflow previously done manually by operators, eliminating human error in shift planning and significantly reducing cycle time.</p>
                         <div class="portfolio-tags">
-                            <span class="portfolio-tag">Web App</span>
+                            <span class="portfolio-tag">ASP.NET</span>
+                            <span class="portfolio-tag">C#</span>
+                            <span class="portfolio-tag">ADO.NET</span>
+                            <span class="portfolio-tag">jQuery</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PSG Calibration -->
+                <div class="portfolio-item" data-category="pg">
+                    <div class="portfolio-icon-header">
+                        <i class="fas fa-tools"></i>
+                        <span class="portfolio-client-badge badge-pg">P&G</span>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>PSG Calibration Application</h3>
+                        <p class="portfolio-location">Procter & Gamble, Baddi</p>
+                        <p class="desc">Calibration management system tracking and scheduling equipment calibration cycles, with automated alerts to ensure quality and safety compliance across plant machinery.</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">ASP.NET Web Forms</span>
+                            <span class="portfolio-tag">C#</span>
+                            <span class="portfolio-tag">ADO.NET</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- End of Line Pallet Labeling -->
+                <div class="portfolio-item" data-category="pg">
+                    <div class="portfolio-icon-header">
+                        <i class="fas fa-barcode"></i>
+                        <span class="portfolio-client-badge badge-pg">P&G</span>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>End of Line Pallet Labeling</h3>
+                        <p class="portfolio-location">Procter & Gamble, Hyderabad</p>
+                        <p class="desc">Automated barcode label generation and printing at end-of-line for full traceability, integrated with warehouse management for seamless dispatch readiness.</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">ASP.NET</span>
+                            <span class="portfolio-tag">C#</span>
                             <span class="portfolio-tag">JavaScript</span>
-                            <span class="portfolio-tag">Functional</span>
-                        </div>
-                        <div class="portfolio-links">
-                            <button class="portfolio-link" onclick="openGallery('calculator')">
-                                <i class="fas fa-eye"></i> View Gallery
-                            </button>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Admin Dashboard -->
-                <div class="portfolio-item" data-category="template">
-                    <div class="portfolio-img">
-                        <img src="AdminTemplate/Screenshot 2024-07-25 102448.png" alt="Admin Dashboard">
+
+                <!-- EDDS -->
+                <div class="portfolio-item" data-category="pg">
+                    <div class="portfolio-icon-header">
+                        <i class="fas fa-file-alt"></i>
+                        <span class="portfolio-client-badge badge-pg">P&G</span>
                     </div>
                     <div class="portfolio-info">
-                        <h3>Admin/User Dashboard</h3>
-                        <p>A template for admin and user dashboards with modern design, intuitive layout and comprehensive functionality.</p>
+                        <h3>EDDS – Electronic Document Distribution</h3>
+                        <p class="portfolio-location">Procter & Gamble, Baddi</p>
+                        <p class="desc">Centralized document management system with versioning, approvals, and role-based access, digitizing compliance workflows and eliminating paper dependency across the plant.</p>
                         <div class="portfolio-tags">
-                            <span class="portfolio-tag">Template</span>
-                            <span class="portfolio-tag">Dashboard</span>
-                            <span class="portfolio-tag">UI/UX</span>
-                        </div>
-                        <div class="portfolio-links">
-                            <button class="portfolio-link" onclick="openGallery('admin')">
-                                <i class="fas fa-eye"></i> View Gallery
-                            </button>
+                            <span class="portfolio-tag">ASP.NET</span>
+                            <span class="portfolio-tag">C#</span>
+                            <span class="portfolio-tag">SQL Server</span>
+                            <span class="portfolio-tag">jQuery</span>
                         </div>
                     </div>
                 </div>
+
+                <!-- Metadata Management -->
+                <div class="portfolio-item" data-category="pg">
+                    <div class="portfolio-icon-header">
+                        <i class="fas fa-database"></i>
+                        <span class="portfolio-client-badge badge-pg">P&G</span>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Metadata Management System</h3>
+                        <p class="portfolio-location">Procter & Gamble, Baddi</p>
+                        <p class="desc">Repository managing master data definitions, mappings, and configurations, ensuring cross-application data consistency through centralized governance.</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">ASP.NET</span>
+                            <span class="portfolio-tag">C#</span>
+                            <span class="portfolio-tag">ADO.NET</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ChangeOver Checklist -->
+                <div class="portfolio-item" data-category="pg">
+                    <div class="portfolio-icon-header">
+                        <i class="fas fa-clipboard-check"></i>
+                        <span class="portfolio-client-badge badge-pg">P&G</span>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>ChangeOver CheckList Application</h3>
+                        <p class="portfolio-location">Procter & Gamble, Hyderabad</p>
+                        <p class="desc">Replaced paper changeover checklists with a structured digital validation workflow, improving compliance, auditability, and changeover turnaround on the production floor.</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">ASP.NET</span>
+                            <span class="portfolio-tag">C#</span>
+                            <span class="portfolio-tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NPNT -->
+                <div class="portfolio-item" data-category="pg">
+                    <div class="portfolio-icon-header">
+                        <i class="fas fa-shield-alt"></i>
+                        <span class="portfolio-client-badge badge-pg">P&G</span>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>NPNT – No Paper No Touch</h3>
+                        <p class="portfolio-location">Procter & Gamble, Baddi</p>
+                        <p class="desc">Mission-critical application governing live production runs, where any downtime halts the entire plant. Maintained and enhanced with zero tolerance for errors, ensuring 24/7 uptime and data integrity.</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">ASP.NET</span>
+                            <span class="portfolio-tag">C#</span>
+                            <span class="portfolio-tag">SQL Server</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -1224,6 +1334,9 @@
                     <div class="social-links">
                         <a href="https://github.com/someshchauhan/" class="social-link" target="_blank">
                             <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/someshchauhan-5a26b7388" class="social-link" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
                         </a>
                         <a href="https://wa.me/9058252605" class="social-link" target="_blank">
                             <i class="fab fa-whatsapp"></i>
@@ -1277,13 +1390,14 @@
             <div class="footer-content">
                 <div class="footer-logo">
                     <img src="./Images/My-Logo.png" alt="Somesh Chauhan">
-                    <p>Full Stack Developer passionate about creating innovative solutions and delivering quality work.</p>
+                    <p>Full Stack Developer specializing in .NET Core, ASP.NET, React.js and SQL Server, building enterprise industrial applications for global FMCG manufacturers.</p>
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About</a></li>
+                        <li><a href="#experience">Experience</a></li>
                         <li><a href="#portfolio">Portfolio</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
@@ -1298,72 +1412,13 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 Somesh Chauhan. All Rights Reserved.</p>
+                <p>&copy; 2025 Somesh Chauhan. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Image Modal -->
-    <div id="imageModal" class="modal">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <div class="modal-nav modal-prev" onclick="changeImage(-1)">
-            <i class="fas fa-chevron-left"></i>
-        </div>
-        <div class="modal-nav modal-next" onclick="changeImage(1)">
-            <i class="fas fa-chevron-right"></i>
-        </div>
-        <div class="modal-counter" id="modalCounter">1 / 5</div>
-        <img class="modal-content" id="modalImage">
-    </div>
-
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // Image galleries for each project
-        const galleries = {
-            fantasy: [
-                'FantasyApp/Start.png',
-                'FantasyApp/Login.png',
-                'FantasyApp/Index.png',
-                'FantasyApp/menu.png',
-                'FantasyApp/Wallet.png',
-                'FantasyApp/Info.png',
-                'FantasyApp/points.png',
-                'FantasyApp/more.png',
-                'FantasyApp/contest.png',
-                'FantasyApp/team.png'
-            ],
-            school: [
-                'SchoolManagement/SchoolStartPage.png',
-                'SchoolManagement/SchoolStartLogin.png',
-                'SchoolManagement/SchoolIndex.png',
-                'SchoolManagement/SchoolIndex-StudentAdmission.png',
-                'SchoolManagement/StudentAdmission.png',
-                'SchoolManagement/AdmissionSuccessful.png',
-                'SchoolManagement/ToInformation.png',
-                'SchoolManagement/Information.png',
-                'SchoolManagement/SearchingInfo.png',
-                'SchoolManagement/InfoFound.png',
-                'SchoolManagement/Classlist.png',
-                'SchoolManagement/OtherFeatures.png'
-            ],
-            login: [
-                'LoginSignup/Screenshot 2024-07-25 102635.png',
-                'LoginSignup/Screenshot 2024-07-25 102645.png'
-            ],
-            calculator: [
-                'Calculator/Screenshot 2024-07-25 102022.png',
-                'Calculator/Screenshot 2024-07-25 102035.png',
-                'Calculator/Screenshot 2024-07-25 102046.png'
-            ],
-            admin: [
-                'AdminTemplate/Screenshot 2024-07-25 102448.png',
-                'AdminTemplate/Screenshot 2024-07-25 102500.png'
-            ]
-        };
-
-        let currentGallery = [];
-        let currentImageIndex = 0;
-
         // Particles.js initialization
         particlesJS('particles-js', {
             particles: {
@@ -1420,17 +1475,14 @@
 
         filterButtons.forEach(button => {
             button.addEventListener('click', function() {
-                // Remove active class from all buttons
                 filterButtons.forEach(btn => btn.classList.remove('active'));
-                
-                // Add active class to clicked button
                 this.classList.add('active');
                 
                 const filterValue = this.getAttribute('data-filter');
                 
                 portfolioItems.forEach(item => {
                     if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                        item.style.display = 'block';
+                        item.style.display = 'flex';
                         setTimeout(() => {
                             item.classList.add('visible');
                         }, 50);
@@ -1442,60 +1494,6 @@
                     }
                 });
             });
-        });
-
-        // Image gallery functionality
-        function openGallery(galleryName) {
-            currentGallery = galleries[galleryName];
-            currentImageIndex = 0;
-            showImage();
-            document.getElementById('imageModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function showImage() {
-            const modalImage = document.getElementById('modalImage');
-            const modalCounter = document.getElementById('modalCounter');
-            
-            modalImage.src = currentGallery[currentImageIndex];
-            modalCounter.textContent = `${currentImageIndex + 1} / ${currentGallery.length}`;
-        }
-
-        function changeImage(direction) {
-            currentImageIndex += direction;
-            
-            if (currentImageIndex < 0) {
-                currentImageIndex = currentGallery.length - 1;
-            } else if (currentImageIndex >= currentGallery.length) {
-                currentImageIndex = 0;
-            }
-            
-            showImage();
-        }
-
-        function closeModal() {
-            document.getElementById('imageModal').classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modal when clicking outside the image
-        document.getElementById('imageModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
-        });
-
-        // Keyboard navigation for modal
-        document.addEventListener('keydown', function(e) {
-            if (document.getElementById('imageModal').classList.contains('active')) {
-                if (e.key === 'Escape') {
-                    closeModal();
-                } else if (e.key === 'ArrowLeft') {
-                    changeImage(-1);
-                } else if (e.key === 'ArrowRight') {
-                    changeImage(1);
-                }
-            }
         });
 
         // Form submission
@@ -1520,7 +1518,6 @@
                         behavior: 'smooth'
                     });
                     
-                    // Close mobile menu if open
                     document.getElementById('nav-links').classList.remove('active');
                 }
             });
