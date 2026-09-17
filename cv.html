@@ -120,9 +120,26 @@
         }
 
         .title {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--gray);
             margin-bottom: 20px;
+        }
+
+        .title-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .title-tags span {
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 20px;
+            color: var(--primary);
         }
 
         .contact-info {
@@ -151,6 +168,12 @@
             color: var(--accent);
             font-size: 1.1rem;
             width: 20px;
+        }
+
+        .contact-item span, .contact-item a {
+            color: var(--light);
+            text-decoration: none;
+            word-break: break-word;
         }
 
         /* Main Content */
@@ -223,8 +246,8 @@
         /* Skills Section */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 12px;
         }
 
         .skill-item {
@@ -235,6 +258,7 @@
             text-align: center;
             transition: var(--transition);
             cursor: default;
+            font-size: 0.9rem;
         }
 
         .skill-item:hover {
@@ -305,6 +329,111 @@
             margin-bottom: 10px;
         }
 
+        .timeline-item ul.exp-bullets {
+            list-style: none;
+            margin-top: 12px;
+        }
+
+        .timeline-item ul.exp-bullets li {
+            position: relative;
+            padding: 5px 0 5px 22px;
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .timeline-item ul.exp-bullets li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Project cards */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 20px;
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+        }
+
+        .project-card-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 6px;
+        }
+
+        .project-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--light);
+        }
+
+        .project-client {
+            font-size: 0.7rem;
+            padding: 3px 10px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .client-pg {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--accent);
+        }
+
+        .client-itc {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--secondary);
+        }
+
+        .project-location {
+            font-size: 0.85rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .project-stack {
+            font-size: 0.78rem;
+            color: var(--gray);
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .project-card ul {
+            list-style: none;
+        }
+
+        .project-card ul li {
+            position: relative;
+            padding: 4px 0 4px 18px;
+            color: var(--gray);
+            font-size: 0.88rem;
+            line-height: 1.5;
+        }
+
+        .project-card ul li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
         /* Lists */
         .info-list {
             list-style: none;
@@ -360,29 +489,6 @@
             margin-top: 30px;
         }
 
-        /* Back Button */
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 24px;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: var(--transition);
-            font-weight: 500;
-            margin-top: 30px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .back-btn:hover {
-            background: var(--primary-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
-        }
-
         /* Responsive Design */
         @media (max-width: 992px) {
             .cv-container {
@@ -427,7 +533,7 @@
             }
             
             .skills-grid {
-                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
             }
         }
 
@@ -453,6 +559,17 @@
             .timeline-item::before {
                 left: -28px;
             }
+
+            .project-card-head {
+                flex-direction: column;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
         }
     </style>
 </head>
@@ -466,12 +583,18 @@
                 </div>
                 <h1 class="name">Somesh Chauhan</h1>
                 <p class="title">Full Stack Developer</p>
+                <div class="title-tags">
+                    <span>.NET Core</span>
+                    <span>React.js</span>
+                    <span>ASP.NET</span>
+                    <span>SQL Server</span>
+                </div>
             </div>
 
             <div class="contact-info">
                 <div class="contact-item">
                     <i class="fas fa-map-marker-alt"></i>
-                    <span>Srinagar, Pauri Garhwal, Uttarakhand</span>
+                    <span>Srinagar, Uttarakhand</span>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-phone"></i>
@@ -480,6 +603,10 @@
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
                     <span>somesh.chauhan.255@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="https://www.linkedin.com/in/someshchauhan-5a26b7388" target="_blank">linkedin.com/in/someshchauhan</a>
                 </div>
             </div>
 
@@ -493,17 +620,23 @@
                 <div class="section-content">
                     <div class="skills-grid">
                         <div class="skill-item">C#</div>
-                        <div class="skill-item">C</div>
-                        <div class="skill-item">C++</div>
-                        <div class="skill-item">.NET</div>
-                        <div class="skill-item">ASP.NET</div>
+                        <div class="skill-item">.NET Core</div>
+                        <div class="skill-item">.NET Framework</div>
+                        <div class="skill-item">ASP.NET Web Forms</div>
+                        <div class="skill-item">ADO.NET</div>
+                        <div class="skill-item">React.js</div>
+                        <div class="skill-item">AngularJS</div>
                         <div class="skill-item">JavaScript</div>
                         <div class="skill-item">jQuery</div>
-                        <div class="skill-item">HTML</div>
-                        <div class="skill-item">CSS</div>
+                        <div class="skill-item">HTML5</div>
+                        <div class="skill-item">CSS3</div>
                         <div class="skill-item">JSON</div>
-                        <div class="skill-item">ADO.NET</div>
+                        <div class="skill-item">REST APIs</div>
                         <div class="skill-item">SQL Server</div>
+                        <div class="skill-item">SSMS</div>
+                        <div class="skill-item">Git / GitHub</div>
+                        <div class="skill-item">C</div>
+                        <div class="skill-item">C++</div>
                     </div>
                 </div>
             </div>
@@ -511,35 +644,19 @@
             <div class="section">
                 <div class="section-header">
                     <div class="section-icon">
-                        <i class="fas fa-user"></i>
+                        <i class="fas fa-star"></i>
                     </div>
-                    <h2 class="section-title">Personal Skills</h2>
+                    <h2 class="section-title">Core Competencies</h2>
                 </div>
                 <div class="section-content">
                     <ul class="info-list">
-                        <li>Hard-working & Sincere</li>
-                        <li>Good Decision-making</li>
-                        <li>Analytical Skills</li>
-                        <li>Intellectual Ability</li>
-                        <li>Problem Solving</li>
-                        <li>Team Collaboration</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="section">
-                <div class="section-header">
-                    <div class="section-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h2 class="section-title">Hobbies</h2>
-                </div>
-                <div class="section-content">
-                    <ul class="info-list">
-                        <li>Reading Books</li>
-                        <li>Online Gaming</li>
-                        <li>Learning New Technologies</li>
-                        <li>UI/UX Design</li>
+                        <li>Full Stack Development</li>
+                        <li>Manufacturing Automation</li>
+                        <li>REST API Design</li>
+                        <li>Database Design</li>
+                        <li>Problem Solving & Analytical Thinking</li>
+                        <li>Client Engagement</li>
+                        <li>Continuous Learning</li>
                     </ul>
                 </div>
             </div>
@@ -571,8 +688,177 @@
                 </div>
                 <div class="section-content">
                     <p style="color: var(--gray); line-height: 1.8;">
-                        Passionate and driven Full Stack Developer eager to utilize technical expertise in website and software development to craft innovative solutions for dynamic organizations. Dedicated to contributing to company success while advancing professional growth through challenging projects and continuous learning. Ready to make a meaningful impact from day one.
+                        Results-driven Full Stack Developer at SM Informatics & Controls with proven experience delivering enterprise-grade industrial applications for global FMCG leaders including Procter & Gamble and ITC. Specializes in end-to-end development across .NET Core APIs, ASP.NET Web Forms, React.js, and SQL Server — with a strong record of automating manual plant workflows, integrating real-time monitoring systems, and building mission-critical software that directly supports live manufacturing operations.
                     </p>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h2 class="section-title">Professional Experience</h2>
+                </div>
+                <div class="section-content">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h3 class="timeline-title">Software Developer</h3>
+                            <p class="timeline-subtitle">SM Informatics & Controls · Noida, Uttar Pradesh · On-site</p>
+                            <p class="timeline-date">Mar 2025 – Present</p>
+                            <ul class="exp-bullets">
+                                <li>Develop and deliver full-stack industrial applications for P&G (Baddi & Hyderabad) and ITC (Haridwar & Agra), spanning 10+ production-grade projects.</li>
+                                <li>Build solutions across .NET Core APIs, ASP.NET Web Forms, React.js, C#, and SQL Server, directly in client manufacturing environments.</li>
+                                <li>Collaborate on-site with plant engineers and operators to gather requirements, validate deliverables, and drive seamless integration.</li>
+                                <li>Replace manual, paper-based workflows with reliable, auditable, and scalable digital systems that improve plant efficiency.</li>
+                                <li>Maintain high-availability, mission-critical software in demanding 24/7 manufacturing environments with zero-downtime expectations.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-diagram-project"></i>
+                    </div>
+                    <h2 class="section-title">Project Portfolio</h2>
+                </div>
+                <div class="section-content">
+                    <div class="project-grid">
+
+                        <div class="project-card">
+                            <div class="project-card-head">
+                                <span class="project-title">OEE – Overall Equipment Effectiveness</span>
+                                <span class="project-client client-itc">ITC</span>
+                            </div>
+                            <p class="project-location">ITC Limited, Agra</p>
+                            <p class="project-stack">.NET Core · C# · PostgreSQL</p>
+                            <ul>
+                                <li>Real-time OEE dashboard tracking availability, performance, and quality across production lines.</li>
+                                <li>Automated downtime and loss-tracking to help plant teams identify efficiency gaps and improve throughput.</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-card-head">
+                                <span class="project-title">CMSite – Logistics & Production Portal</span>
+                                <span class="project-client client-pg">P&G</span>
+                            </div>
+                            <p class="project-location">Procter & Gamble, Hyderabad</p>
+                            <p class="project-stack">.NET Core · C# · SQL Server</p>
+                            <ul>
+                                <li>Unified portal integrating logistics and production data for real-time visibility across plant operations.</li>
+                                <li>Streamlined coordination between production scheduling and dispatch, reducing manual follow-ups.</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-card-head">
+                                <span class="project-title">Energy Monitoring System</span>
+                                <span class="project-client client-itc">ITC</span>
+                            </div>
+                            <p class="project-location">ITC Limited, Haridwar</p>
+                            <p class="project-stack">React.js · .NET Core API · C# · SQL Server</p>
+                            <ul>
+                                <li>Real-time dashboard monitoring plant energy consumption across production lines.</li>
+                                <li>Live KPI tracking and anomaly detection to proactively reduce energy wastage.</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-card-head">
+                                <span class="project-title">PSG Production Planning</span>
+                                <span class="project-client client-pg">P&G</span>
+                            </div>
+                            <p class="project-location">Procter & Gamble, Baddi</p>
+                            <p class="project-stack">ASP.NET · C# · SQL Server · ADO.NET · jQuery</p>
+                            <ul>
+                                <li>Automated full production scheduling workflow previously done manually by operators.</li>
+                                <li>Eliminated human error in shift planning and significantly reduced cycle time.</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-card-head">
+                                <span class="project-title">PSG Calibration Application</span>
+                                <span class="project-client client-pg">P&G</span>
+                            </div>
+                            <p class="project-location">Procter & Gamble, Baddi</p>
+                            <p class="project-stack">ASP.NET Web Forms · C# · SQL Server · ADO.NET</p>
+                            <ul>
+                                <li>Calibration management system tracking and scheduling equipment calibration cycles.</li>
+                                <li>Automated alerts ensure quality and safety compliance across plant machinery.</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-card-head">
+                                <span class="project-title">End of Line Pallet Labeling</span>
+                                <span class="project-client client-pg">P&G</span>
+                            </div>
+                            <p class="project-location">Procter & Gamble, Hyderabad</p>
+                            <p class="project-stack">ASP.NET · C# · SQL Server · JavaScript</p>
+                            <ul>
+                                <li>Automated barcode label generation and printing at end-of-line for full traceability.</li>
+                                <li>Integrated with warehouse management for seamless dispatch readiness.</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-card-head">
+                                <span class="project-title">EDDS – Electronic Document Distribution</span>
+                                <span class="project-client client-pg">P&G</span>
+                            </div>
+                            <p class="project-location">Procter & Gamble, Baddi</p>
+                            <p class="project-stack">ASP.NET · C# · SQL Server · HTML/CSS · jQuery</p>
+                            <ul>
+                                <li>Centralized document management with versioning, approvals, and role-based access.</li>
+                                <li>Digitized compliance workflows, eliminating paper dependency across the plant.</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-card-head">
+                                <span class="project-title">Metadata Management System</span>
+                                <span class="project-client client-pg">P&G</span>
+                            </div>
+                            <p class="project-location">Procter & Gamble, Baddi</p>
+                            <p class="project-stack">ASP.NET · C# · SQL Server · ADO.NET</p>
+                            <ul>
+                                <li>Repository managing master data definitions, mappings, and configurations.</li>
+                                <li>Ensured cross-application data consistency via centralized governance.</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-card-head">
+                                <span class="project-title">ChangeOver CheckList Application</span>
+                                <span class="project-client client-pg">P&G</span>
+                            </div>
+                            <p class="project-location">Procter & Gamble, Hyderabad</p>
+                            <p class="project-stack">ASP.NET · C# · SQL Server · JavaScript</p>
+                            <ul>
+                                <li>Replaced paper changeover checklists with a structured digital validation workflow.</li>
+                                <li>Improved compliance, auditability, and changeover turnaround on the production floor.</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-card-head">
+                                <span class="project-title">NPNT – No Paper No Touch</span>
+                                <span class="project-client client-pg">P&G</span>
+                            </div>
+                            <p class="project-location">Procter & Gamble, Baddi</p>
+                            <p class="project-stack">ASP.NET · C# · SQL Server</p>
+                            <ul>
+                                <li>Mission-critical application governing live production runs — any downtime halts the entire plant.</li>
+                                <li>Maintained and enhanced with zero tolerance for errors, ensuring 24/7 uptime and data integrity.</li>
+                            </ul>
+                        </div>
+
+                    </div>
                 </div>
             </div>
 
@@ -586,9 +872,9 @@
                 <div class="section-content">
                     <div class="timeline">
                         <div class="timeline-item">
-                            <h3 class="timeline-title">Bachelor of Science</h3>
-                            <p class="timeline-subtitle">HNBGU Srinagar Garhwal</p>
-                            <p class="timeline-date">2019 - 2022</p>
+                            <h3 class="timeline-title">Bachelor of Science (B.Sc.)</h3>
+                            <p class="timeline-subtitle">HNBGU, Srinagar Garhwal, Uttarakhand</p>
+                            <p class="timeline-date">Aug 2019 - Jun 2022</p>
                         </div>
                         <div class="timeline-item">
                             <h3 class="timeline-title">12th Standard (CBSE)</h3>
@@ -607,36 +893,14 @@
             <div class="section">
                 <div class="section-header">
                     <div class="section-icon">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <h2 class="section-title">Technical Skills</h2>
-                </div>
-                <div class="section-content">
-                    <ul class="info-list">
-                        <li><strong>Programming Languages:</strong> C#, C, C++</li>
-                        <li><strong>Software Development Platform:</strong> Microsoft .NET</li>
-                        <li><strong>Web Technologies:</strong> ASP.NET, JavaScript, Jquery, HTML, CSS, JSON</li>
-                        <li><strong>Database Technology:</strong> ADO.NET</li>
-                        <li><strong>Database:</strong> Microsoft SQL Server</li>
-                        <li><strong>Software Tools:</strong> Visual Studio.NET, SQL Server Management Studio, VS Code</li>
-                        <li><strong>Version Control:</strong> Git, GitHub</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="section">
-                <div class="section-header">
-                    <div class="section-icon">
                         <i class="fas fa-id-card"></i>
                     </div>
                     <h2 class="section-title">Personal Details</h2>
                 </div>
                 <div class="section-content">
                     <ul class="info-list">
-                        <li><strong>Father's Name:</strong> Sh. Lokpati Singh Chauhan</li>
-                        <li><strong>Date of Birth:</strong> 28-January-2002</li>
+                        <li><strong>Date of Birth:</strong> 28 January 2002</li>
                         <li><strong>Gender:</strong> Male</li>
-                        <li><strong>Marital Status:</strong> Unmarried</li>
                         <li><strong>Nationality:</strong> Indian</li>
                     </ul>
                 </div>
@@ -651,7 +915,7 @@
                 </div>
                 <div class="section-content">
                     <p style="color: var(--gray); margin-bottom: 20px;">
-                        I hereby declare that the particulars given herein are true to the best of my belief.
+                        I declare that all information furnished above is true and correct to the best of my knowledge.
                     </p>
                     <div style="margin-top: 25px;">
                         <p>Date: <input type="text" class="signature-input" placeholder="DD/MM/YYYY"></p>
@@ -662,7 +926,9 @@
                 </div>
             </div>
 
-            
+            <a href="index.html" class="back-btn" style="display:inline-flex;align-items:center;gap:10px;padding:12px 24px;background:var(--primary);color:white;text-decoration:none;border-radius:8px;transition:var(--transition);font-weight:500;margin-top:30px;">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
         </main>
     </div>
 </body>
